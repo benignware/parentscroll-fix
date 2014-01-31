@@ -17,7 +17,7 @@ The fix tracks the touch position on the document to determine the scrolling dir
 
 Additonal Notes
 --------------
-Trigger smooth scrolling behaviour on iOS
+You want to trigger smooth scrolling behaviour on iOS like this:
 
 ```
 .modal {
