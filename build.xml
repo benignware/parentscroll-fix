@@ -1,0 +1,29 @@
+<project name="JS-Fix Builder" default="build">
+  
+  <property name="vendor" value="benignware"/>
+  
+  <property file="build.properties"/>
+  
+  <target name="clean">
+    <delete dir="${build.dir}" />
+  </target>
+  
+  <delete dir="${obj-dir}" />
+  
+  <target name="build">
+        
+    <mkdir dir="${build.dir}"/>
+  
+    <copy todir="${build.dir}">
+      <fileset dir="${basedir}/src"></fileset>
+    </copy>
+    
+    <java jar="${build.yuicompressor}" fork="true" failonerror="true">
+      <arg value="${basedir}/src/parentscroll-fix.js"/>
+      <arg line="-o ${build.dir}/parentscroll-fix.min.js"/>
+    </java>
+  
+  </target>
+  
+  
+</project>
