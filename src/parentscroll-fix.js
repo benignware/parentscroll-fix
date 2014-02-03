@@ -3,13 +3,8 @@
    * This fix prevents scrolling of parent container in overflow elements on iOS and Android
    */
   
-  var isIOS6 = (function() {
-    if (/iP(hone|od|ad)/.test(navigator.platform)) {
-      var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
-      var version = [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
-      if (version[0] <= 6) return true;
-    }
-    return false;
+  var isIOS = (function() {
+    return /iP(hone|od|ad)/.test(navigator.platform);
   })();
   
   
@@ -20,7 +15,7 @@
     return false;
   })();
   
-  if (!isIOS6 && !isAndroid) {
+  if (!isIOS && !isAndroid) {
     return;
   }
   
