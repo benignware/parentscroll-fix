@@ -37,12 +37,12 @@
   
   function getOverflowContainer(elem) {
     while(elem) {
+      if (elem == doc.body) return null;
       var overflow = getStyle(elem, 'overflow');
       if (overflow == 'scroll' || overflow == 'auto') {
         return elem;
       }
       elem = elem.parentNode;
-      if (elem == doc) break;
     }
     return null;
   }
@@ -67,7 +67,9 @@
     var viewportHeight = overflowContainer.offsetHeight;
     var scrollTop = overflowContainer.scrollTop;
     var scrollHeight = overflowContainer.scrollHeight;
+    // console.log('prevent scrolling?', scrollHeight, viewportHeight);    
     if (scrollHeight <= viewportHeight || scrollTop == 0 && dy < 0 || scrollTop == scrollHeight - viewportHeight && dy > 0) {
+      console.info('******* prevent scrolling', scrollHeight, viewportHeight);
       event.preventDefault();
     }
   });
