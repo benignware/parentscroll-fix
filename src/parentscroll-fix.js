@@ -7,7 +7,6 @@
     return /iP(hone|od|ad)/.test(navigator.platform);
   })();
   
-  
   var isAndroid = (function() {
     if (/android/i.test(navigator.userAgent)) {
       return true;
@@ -50,7 +49,7 @@
   doc.addEventListener('touchstart', function(e) {
     overflowContainer = getOverflowContainer(e.target);
     if (overflowContainer) {
-      var touch = event.type == 'touchstart' ? event.changedTouches[0] : event;
+      var touch = event.changedTouches[0];
       touchPos = {x: touch.clientX, y: touch.clientY};
     }
   });
@@ -58,18 +57,14 @@
   doc.addEventListener('touchmove', function(e) {
     overflowContainer = getOverflowContainer(e.target);
     if (!overflowContainer) return;
-    var touch = event.type == 'touchmove' ? event.changedTouches[0] : event;
-    var touchX = touch.clientX;
+    var touch = event.changedTouches[0];
     var touchY = touch.clientY;
-    var dx = (touchX - touchPos.x) * -1;
     var dy = (touchY - touchPos.y) * -1;
     touchPos = {x: touchX, y: touchY};
     var viewportHeight = overflowContainer.offsetHeight;
     var scrollTop = overflowContainer.scrollTop;
     var scrollHeight = overflowContainer.scrollHeight;
-    // console.log('prevent scrolling?', scrollHeight, viewportHeight);    
     if (scrollHeight <= viewportHeight || scrollTop == 0 && dy < 0 || scrollTop == scrollHeight - viewportHeight && dy > 0) {
-      console.info('******* prevent scrolling', scrollHeight, viewportHeight);
       event.preventDefault();
     }
   });
