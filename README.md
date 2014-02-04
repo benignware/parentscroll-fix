@@ -1,7 +1,7 @@
 parentscroll-fix
 ================
 
-This fix prevents scrolling of parent container in overflow elements on iOS6 and Android.
+This fix prevents scrolling of a parent container with overflow: hidden in overflowing container on iOS6 and Android.
 
 Issue
 -----
