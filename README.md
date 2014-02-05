@@ -1,7 +1,7 @@
 parentscroll-fix
 ================
 
-This fix prevents scrolling of a parent container with overflow: hidden in overflowing container on iOS6 and Android.
+This fix prevents scrolling of the document when body is set to overflow: hidden on iOS6 and Android.
 
 Issue
 -----
@@ -13,7 +13,7 @@ The issue is described here:
 Fix
 ---
 
-The fix tracks the touch position on the document to determine the scrolling direction and prevents default behaviour when moving beneath the edge.
+The fix tracks the touch position on the document to determine the scrolling direction and prevents scrolling when moving beyond the edges.
 
 Additonal Notes
 --------------
