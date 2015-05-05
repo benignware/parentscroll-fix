@@ -1,0 +1,23 @@
+{
+  "name": "parentscroll-fix",
+  "version": "0.0.1",
+  "homepage": "https://github.com/benignware/parentscroll-fix",
+  "authors": [
+    "Rafael Nowrotek <mail@benignware.com>"
+  ],
+  "description": "This fix prevents scrolling of parent container in overflow elements on iOS and Android",
+  "main": "dist/parentscroll-fix.min.js",
+  "keywords": [
+    "javascript",
+    "mobile",
+    "fix"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
